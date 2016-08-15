@@ -1,0 +1,50 @@
+User
+
+Booking
+
+Offer
+
+Review
+
+
+
+root 'pages#home' # diplay fetured offers
+
+
+##BOTH
+'users/login' (+update)
+'users/profile'
+'users/logout'
+'users/signup'
+
+'users/:id'
+
+'offers/:id' # diplay info about the offer
+'offers/new' # create a new offer for current_user (+create)
+'offers/:id/edit' # edit the current offer # can be updated only by the owner
+
+
+##PARENT
+'offers' # display all the offers
+
+'offers/id/bookings/new' # book a offer + reviews
+'bookings' # bookings as a parent (display future + passed bookigs)
+'bookings/:id' # get info about the booking
+'bookings/:id/reviews/new' # add a new review for the booking
+
+
+##NANNY
+'my/offers' # display her the offers
+
+'my/offers/:id/destroy'
+'my/bookings' # bookings as a nanny to manage your bookings
+'my/bookings/:id' # bookings as a nanny to manage your bookings
+'my/bookings/:id/edit' # bookings as a nanny to manage your bookings
+
+
+
+
+
+
+
+
