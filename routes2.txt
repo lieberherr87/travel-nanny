@@ -17,10 +17,10 @@ root 'pages#home' x # diplay fetured offers
 ##PARENT
 'offers' x # display all the offers
 
-'offers/id/bookings/new' x (no reviews) # book a offer + reviews
-'bookings' x # bookings as a parent (display future + passed bookigs)
-'bookings/:id' x # get info about the booking
-'bookings/:id/edit'
+'offers/id/bookings/new' x (no reviews) # book a offer
+'bookings' x # bookings as a parent (display future + past bookings)
+'bookings/:id' x # get info about the booking, displayed as a modal
+'bookings/:id/edit' #  displayed as a modal
 'bookings/:id/reviews/new' x # add a new review for the booking
 
 
@@ -28,5 +28,5 @@ root 'pages#home' x # diplay fetured offers
 
 'my/offers/:id/destroy' x
 'my/bookings' x # bookings as a nanny to manage your bookings
-'my/bookings/:id' x # bookings as a nanny to manage your bookings
-'my/bookings/:id/edit' x # bookings as a nanny to manage your bookings
+'my/bookings/:id' x # bookings as a nanny to manage your bookings, displayed as modal
+'my/bookings/:id/edit' x # bookings as a nanny to edit your bookings, displayed as modal
