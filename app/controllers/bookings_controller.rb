@@ -1,5 +1,5 @@
 class BookingsController < ApplicationController
-  before_action set_booking
+  before_action :set_booking
 
   def index
     @bookings = Booking.all

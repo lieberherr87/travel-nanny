@@ -10,7 +10,7 @@ class OffersController < ApplicationController
 
   def create
     @offer = current_user.create_offer(offer_params)
-    redirect_to offers
+    redirect_to offers_path
   end
 
   def edit
@@ -18,12 +18,12 @@ class OffersController < ApplicationController
   end
 
   def update
-    @offer = current_user.offer.update(offer_params)
+    current_user.offer.update(offer_params)
     redirect_to offers_path
   end
 
   def destroy
-    @offer = current_user.offer.destroy
+    current_user.offer.destroy
     redirect_to new_offer_path
   end
 
