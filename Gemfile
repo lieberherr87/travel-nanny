@@ -35,6 +35,10 @@ gem 'figaro'
 gem 'cloudinary', '1.1.0'
 gem 'carrierwave'
 
+# Facebook Auth
+gem 'omniauth-facebook'
+
+
 gem 'bootstrap-sass'
 gem 'font-awesome-sass'
 gem 'simple_form'
