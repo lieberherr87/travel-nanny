@@ -10,6 +10,7 @@ class User < ApplicationRecord
   validates :encrypted_password, presence: true
 
   has_many :bookings, dependent: :destroy
+  has_many :reviews, through: :bookings
   has_one :offer, dependent: :destroy
 
   mount_uploader :image, PhotoUploader
