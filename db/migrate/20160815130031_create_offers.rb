@@ -5,7 +5,7 @@ class CreateOffers < ActiveRecord::Migration[5.0]
       t.integer :price_per_day
       t.string :superpower
       t.string :video
-      t.references :users, foreign_key: true
+      t.references :user, foreign_key: true
 
       t.timestamps
     end
