@@ -7,7 +7,6 @@ class User < ApplicationRecord
   validates :first_name, presence: true
   validates :last_name, presence: true
   validates :email, presence: true, uniqueness: true
-  validates :encrypted_password, presence: true
 
   has_many :bookings, dependent: :destroy
   has_many :reviews, through: :bookings
