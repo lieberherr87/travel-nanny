@@ -30,6 +30,11 @@ gem 'jbuilder', '~> 2.5'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+# To upload Pictures
+gem 'figaro'
+gem 'cloudinary', '1.1.0'
+gem 'carrierwave'
+
 gem 'bootstrap-sass'
 gem 'font-awesome-sass'
 gem 'simple_form'
