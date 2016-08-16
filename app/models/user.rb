@@ -13,5 +13,4 @@ class User < ApplicationRecord
   has_one :offer, dependent: :destroy
 
   mount_uploader :image, PhotoUploader
-
 end
