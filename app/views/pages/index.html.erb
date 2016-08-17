@@ -33,33 +33,36 @@
     <div class="row">
 
       <div class="col-xs-12 col-sm-4">
-        <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('assets/card-paris.jpg');">
-          <div class="card-description">
-            <h3>Paris</h3>
-            <p>Find a Nanny in Paris</p>
+        <%= link_to offers_path(:location=>"Paris") do %>
+          <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('assets/card-paris.jpg');">
+            <div class="card-description">
+              <h3>Paris</h3>
+              <p>Find a Nanny in Paris</p>
+            </div>
           </div>
-            <a class="card-link" href="#" ></a>
-        </div>
+        <% end %>
       </div>
 
       <div class="col-xs-12 col-sm-4">
-        <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('assets/card-brussels.jpeg');">
-          <div class="card-description">
-            <h3>Brussels</h3>
-            <p>Find a Nanny in Brussels</p>
-          </div>
-            <a class="card-link" href="#" ></a>
+        <%= link_to offers_path(:location=>"Brussel") do %>
+          <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('assets/card-brussels.jpeg');">
+            <div class="card-description">
+              <h3>Brussel</h3>
+              <p>Find a Nanny in Brussels</p>
+            </div>
         </div>
+        <% end %>
       </div>
 
       <div class="col-xs-12 col-sm-4">
-        <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('assets/card-london.jpeg');">
-          <div class="card-description">
-            <h3>London</h3>
-            <p>Find a Nanny in London</p>
+        <%= link_to offers_path(:location=>"London") do %>
+          <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('assets/card-london.jpeg');">
+            <div class="card-description">
+              <h3>London</h3>
+              <p>Find a Nanny in London</p>
+            </div>
           </div>
-            <a class="card-link" href="#" ></a>
-        </div>
+        <% end %>
       </div>
     </div>
     <div class="text-center">

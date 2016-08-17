@@ -1,9 +1,93 @@
+<div class="container">
+    <%= link_to 'Back', offers_path %></td>
+    <h1>Nanny in <%= @offer.location %></h1>
+</div>
+
+<!-- User Picture and User Name -->
+<div class="container">
+  <div class="col-md-6">
+    <div class="offer-profile">
+      <% if @offer.user.facebook_picture_url %>
+        <%= cl_image_tag @offer.user.facebook_picture_url, class:"avatar avatar-large" %>
+      <% end%>
+      <% if @offer.user.image %>
+        <%= cl_image_tag @offer.user.image, class:"avatar avatar-large" %>
+      <% end%>
+        <br>
+      <p><b><%= @offer.user.first_name %> <%= @offer.user.last_name %></b></p>
+    </div>
+  </div>
+    <div class="col-md-6">
+    <%if @offer.superpower %>
+      <h4>My Superpowers</h4>
+       <%= @offer.superpower %>
+      <!-- Offer Superpower -->
+    <% end %>
+    </div>
+  </div>
+</div>
+
+ <!-- Offer Video and Offer price per Day -->
+<div class="container">
+
+  <div class="col-md-6">
+    <%= cl_video_tag("l0skae6tvfanvjt7jeat.mp4", :width => 350, :height => 250, :crop => "fill", :loop => false, :autoplay => true, :muted => true) %>
+  </div>
+
+  <div class="col-md-6">
+    <!-- Add Calendar -->
+    <table>
+      <thead>
+        <th colspan="2"></th>
+      </thead>
+      <tbody>
+        <tr>
+          <td><p>Select Date </p></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td><p>Price per day:</p></td>
+          <td class="text-right"><p><%= @offer.price_per_day %>USD</p></td>
+        </tr>
+        <tr>
+          <td><p>Fees:</p></td>
+          <td class="text-right"><p> 50 USD</p></td>
+        </tr>
+        <tr>
+          <td><p><b>Total Price per Day:</p></td>
+          <td class="text-right"><p><%= @offer.price_per_day + 50 %> USD</b></p></td>
+        </tr>
+        <tr>
+          <td><%= link_to 'Book', new_booking_path(offer_id: @offer.id), {class: "btn btn-danger"}  %></td>
+          <td></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+</div>
+
+<!-- Offer Description-->
+<div class="container">
+  <p><b>Description of the Nanny </b></p>
+  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quasi excepturi ex saepe commodi voluptate, veritatis asperiores repudiandae sit maiores! Voluptas sint vitae inventore delectus nobis maiores esse dolor quo, quibusdam.</p>
+</div>
+
+
+<!-- Add Offer Review-->
+<div class="container">
+  <h3>Reviews</h3>
+
+</div>
+
 
 <% content_for(:after_js) do %>
   <%= javascript_tag do %>
     $(document).ready(function() {
-      var coord = <%= raw @flat_coordinates %>;
-      alert('Flat coordinates are ' + coord.lat + ', ' + coord.lng);
+      var coord = <%= raw @offer_coordinates %>;
+      alert('Offer coordinates are ' + coord.lat + ', ' + coord.lng);
     });
   <% end %>
 <% end %>
+
+</div>
