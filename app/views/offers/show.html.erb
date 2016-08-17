@@ -35,7 +35,7 @@
   </div>
 
   <div class="col-md-6">
-    <!-- Add Calendar -->
+    <!-- Calendar -->
     <table>
       <thead>
         <th colspan="2"></th>
@@ -44,11 +44,10 @@
         <tr>
           <td><p>Select Date </p></td>
           <td>
-            <div class="input-daterange" id="datepicker">
-            <input type="text" class="input-small" name="start_date" value="08/20/2016" />
-            <span class="add-on">to</span>
-            <input type="text" class="input-small" name="end_date" value="08/22/2016" />
-            </div>
+          <form action="bookings/new" method="POST">
+               <input type="date" name="start_date" />
+            to <input type="date" name="end_date" />
+          </form>
           </td>
         </tr>
         <tr>
