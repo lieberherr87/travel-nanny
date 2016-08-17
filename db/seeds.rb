@@ -6,7 +6,7 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 #
-User.destroy_all
+# User.destroy_all
 
 
 user1 = User.create(first_name:"First name 1", last_name: "Last name 1", email: "test5@mail.com", password: "TESTTEST")
@@ -21,6 +21,6 @@ booking1 = user1.bookings.create(start_date: 20091201, end_date: 20091202, full_
 booking2 = user2.bookings.create(start_date: 20101201, end_date: 20101202, full_price:"400", offer: offer2)
 booking3 = user3.bookings.create(start_date: 20111201, end_date: 20111202, full_price:"500", offer: offer3)
 
-review1 = booking1.reviews.create(content: "blabliblureview", rating: 3)
-review2 = booking2.reviews.create(content: "blabliblureview", rating: 1)
-review3 = booking3.reviews.create(content: "blabliblureview", rating: 5)
+# review1 = booking1.reviews.create(content: "blabliblureview", rating: 3)
+# review2 = booking2.reviews.create(content: "blabliblureview", rating: 1)
+# review3 = booking3.reviews.create(content: "blabliblureview", rating: 5)
