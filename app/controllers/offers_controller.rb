@@ -34,7 +34,7 @@ class OffersController < ApplicationController
   end
 
   def create
-    if user_signed_in?
+    if user_signed_in? && current_user.nanny?
       @offer = current_user.create_offer(offer_params)
       redirect_to offers_path
     else
