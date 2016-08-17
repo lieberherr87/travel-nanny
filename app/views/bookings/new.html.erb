@@ -1,7 +1,7 @@
 <div class="container">
 
 
-  <p>New booking for Offer xyz</p>
+  <p>New booking for Offer from <%= Offer.find_by(id:params["offer_id"]).user.first_name %></p>
 
   <%= render "form" %>
 </div>
