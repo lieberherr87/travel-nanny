@@ -28,6 +28,7 @@ class OffersController < ApplicationController
   end
 
   def show
+    @booking = Booking.new
     @offer = Offer.find(params[:id])
     @offer_coordinates = { lat: @offer.latitude, lng: @offer.longitude }
   end
