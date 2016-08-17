@@ -3,6 +3,7 @@
     <%= f.input :start_date, required: true, autofocus: true %>
     <%= f.input :end_date, required: true %>
     <%= f.input :full_price %>
+    <%=  f.input :offer_id, as: :hidden, input_html: {value: params[:offer_id]} %>
   </div>
 
   <div class="form-actions">

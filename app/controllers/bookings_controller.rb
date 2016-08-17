@@ -10,7 +10,7 @@ class BookingsController < ApplicationController
   end
 
   def new
-    @booking = current_user.bookings.new(@offer)
+    @booking = current_user.bookings.new()
   end
 
   def create
@@ -36,6 +36,6 @@ class BookingsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def booking_params
-      params.require(:booking).permit(:start_date, :end_date, :full_price, :users_id, :offers_id)
+      params.require(:booking).permit(:start_date, :end_date, :full_price, :offer_id)
     end
 end
