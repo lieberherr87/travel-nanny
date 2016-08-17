@@ -35,4 +35,8 @@ class User < ApplicationRecord
     return user
   end
 
+  def create_offer(args)
+    super(args) unless self.offer
+  end
+
 end

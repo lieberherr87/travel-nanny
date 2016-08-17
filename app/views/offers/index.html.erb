@@ -17,7 +17,7 @@
         <td><%= offer.location %></td>
         <td><%= offer.price_per_day %></td>
         <td><%= link_to 'Show', offer %> |
-        <%= link_to 'Book', new_booking_path %></td>
+        <%= link_to 'Book', new_booking_path(offer_id: offer.id) %></td>
       </tr>
     <% end %>
   </tbody>
