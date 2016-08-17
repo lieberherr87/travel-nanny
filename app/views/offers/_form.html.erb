@@ -1,0 +1,12 @@
+<%= simple_form_for @offer do |f| %>
+  <div class="form-inputs">
+    <%= f.input :location, required: true, autofocus: true %>
+    <%= f.input :price_per_day, required: true %>
+    <%= f.input :superpower %>
+    <%= f.input :video %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit, "Create offer" %>
+  </div>
+<% end %>
