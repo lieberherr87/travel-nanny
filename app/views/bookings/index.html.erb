@@ -18,8 +18,8 @@
     <tbody>
       <% @bookings.each do |booking| %>
         <tr>
-          <td><%=  %></td>
-          <td><%=  %></td>
+          <td><%= booking.start_date %></td>
+          <td><%= booking.end_date %></td>
           <td><%= booking.offer.user.first_name %></td>
           <td><%= booking.offer.location %></td>
           <td><%=  %></td>
