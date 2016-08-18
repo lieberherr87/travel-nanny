@@ -17,8 +17,9 @@ class BookingsController < ApplicationController
     @offer = Offer.find(params[:offer_id])
     @booking = @offer.bookings.build(booking_params)
     @booking.user = current_user
-    # calculate full price
-    @booking.full_price = 250
+    # calculate full
+    elapsed_time = (@booking.end_date - @booking.start_date)
+    @booking.full_price = @offer.price_per_day * elapsed_time + 50
     @booking.save
     redirect_to booking_path(@booking)
     # redirect_to
