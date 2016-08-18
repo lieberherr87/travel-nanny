@@ -18,6 +18,6 @@ Rails.application.routes.draw do
   #   resources :reviews, only: [:index, :show, :new, :create]
   # end
 
-  root to: "pages#index"
+  root "pages#index"
 
 end

@@ -10,7 +10,10 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <%= link_to "TravelNanny", root_path, class: "navbar-brand" %>
+      <div class="inline">
+        <%= image_tag "logo", width: '60px' %>
+      </div>
+      <div class="inline"><%= link_to "TravelNanny", root_path, class: "navbar-brand" %></div>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
@@ -38,9 +41,7 @@
         <button type="submit" class="btn btn-default">Submit</button>
       </form> -->
       <ul class="nav navbar-nav navbar-right">
-        <% if user_signed_in? %>
-          <li><%= link_to "Log out", destroy_user_session_path, method: :delete %></li>
-        <% else %>
+        <% if user_signed_in? == false %>
           <li><%= link_to "Log in", new_user_session_path %></li>
         <% end %>
 
@@ -57,7 +58,7 @@
               <li> <% end %> </li>
               <li> <%= link_to "My Bookigns", bookings_path %> </li>
               <li role="separator" class="divider"></li>
-              <li><a href="#">Separated link</a></li>
+              <li><%= link_to "Log out", destroy_user_session_path, method: :delete %></li>
             </ul>
           </li>
         <% end %>
