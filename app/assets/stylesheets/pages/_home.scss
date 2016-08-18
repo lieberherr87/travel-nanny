@@ -9,25 +9,60 @@
 }
 
 .pages{
+
+  .date{
+    color:black;
+  }
+
   .banner{
     position:relative;
-    top: -56px;
-    z-index: -1;
+    top: -59px;
+    .form{
+      position:relative;
+      bottom:0px;
+    }
+  }
+
+  .lobster{
+    color: white !important;
+  }
+
+  .links{
+    border: 2px white solid;
+    margin-left: 4px;
+    a{
+    color:white !important;
+    }
   }
 
   .navbar{
+    z-index: 1;
     background-color: transparent;
     .dropdown {
       border: 2px white solid;
       a{
-        color: white;
-
+        color: black;
+      }
+      .dropdown-toggle{
+        color:white;
       }
     }
   }
-
-
 }
+
+.search{
+  color: black;
+}
+
+.btn{
+  color:white;
+  border: 2px white solid;
+  background-color:transparent;
+  height:40px;
+  width:70px;
+  padding:0px;
+}
+
 
 
 /* -------------------------------------

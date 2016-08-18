@@ -1,9 +1,10 @@
 class OffersController < ApplicationController
   def index
     #@offer = current_user.offer
-
-
-    if params[:location]
+    if params[:search]
+      @offers = Offer.where('location ILIKE ?', params[:search])
+      flash.now[:notice] = "There are #{@offers.count} in this category".html_safe
+    elsif params[:location]
       @offers = Offer.where(:location => params[:location])
       flash[:notice] = "There are #{@offers.count} in this category".html_safe
     else
