@@ -6,20 +6,13 @@ class OffersController < ApplicationController
     if params[:location]
       @offers = Offer.where(:location => params[:location])
       flash[:notice] = "There are #{@offers.count} in this category".html_safe
-
-      @hash = Gmaps4rails.build_markers(@offers) do |offer, marker|
-        marker.lat offer.latitude
-        marker.lng offer.longitude
-      end
-
     else
       @offers = Offer.where.not(latitude: nil, longitude: nil)
-
+    end
       @hash = Gmaps4rails.build_markers(@offers) do |offer, marker|
         marker.lat offer.latitude
         marker.lng offer.longitude
         # marker.infowindow render_to_string(partial: "/flats/map_box", locals: { flat: flat })
-      end
     end
   end
 

@@ -5,15 +5,17 @@
   <table class= "table table-hover">
     <thead>
       <tr>
+        <th>Nanny</th>
         <th>Location</th>
         <th>Price per Day</th>
-        <th colspan="3"></th>
+        <th colspan="4"></th>
       </tr>
     </thead>
 
     <tbody>
       <% @offers.each do |offer| %>
         <tr>
+          <td><%= offer.user.first_name %></td>
           <td><%= offer.location %></td>
           <td><%= offer.price_per_day %></td>
           <td><%= link_to 'Show', offer %> |
