@@ -1,0 +1,34 @@
+// Place all the styles related to the review controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+<h1>Add a Review </h1>
+
+<% if @review.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@review.errors.count, "error") %> prohibited this review from being saved:</h2>
+
+      <ul>
+      <% @review.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+<%= form_for [@booking, @review] do |f| %>
+  <div class="field">
+  <%= f.text_field :content %>
+  </div>
+
+   <div class="field">
+    <%= f.label :rating %>
+    <%= f.select :rating, 0..5 %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "add a review" %>
+  </div>
+
+<% end %>

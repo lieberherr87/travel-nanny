@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
 
 
+  get 'review/show'
+
+  get 'review/new'
+
   get 'pages/index'
 
   devise_for :users,
