@@ -9,7 +9,7 @@
 
   <p><%= link_to 'Back to all Bookings', bookings_path %> </p>
   <% unless @booking.offer.user.nanny? %>
-     <p><%= link_to 'Cancel Booking', bookings_path, method: :delete, data: { confirm: 'Are you sure you want to cancel this booking?' } %></p>
+     <p><td><%= link_to 'Cancel Booking', booking_path(@booking), method: :delete, data: { confirm: 'Are you sure?' } %> </td></p>
   <% end %>
 </div>
 

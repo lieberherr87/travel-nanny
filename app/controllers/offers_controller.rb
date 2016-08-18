@@ -1,9 +1,10 @@
 class OffersController < ApplicationController
   def index
     #@offer = current_user.offer
-
-
-    if params[:location]
+    if params[:search]
+      @offers = Offer.where('location ILIKE ?', params[:search])
+      flash.now[:notice] = "There are #{@offers.count} in this category".html_safe
+    elsif params[:location]
       @offers = Offer.where(:location => params[:location])
       flash[:notice] = "There are #{@offers.count} in this category".html_safe
     else
@@ -49,9 +50,7 @@ class OffersController < ApplicationController
     redirect_to new_offer_path
   end
 
-  private
-
-
+private
 
   def offer_params
     params.require(:offer).permit(:location, :price_per_day, :superpower, :video, :description)
