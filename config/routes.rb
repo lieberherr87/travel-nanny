@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
 
-  get 'pages/index'
+  get '/search' => 'offers#search'
 
   devise_for :users,
     controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
