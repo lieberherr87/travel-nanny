@@ -104,13 +104,13 @@
     });
     $(document).ready(function(){
       $("#booking_end_date").on("change", function(event){
-      var end_date = Date.parse($("#booking_end_date").val());
-      var start_date = Date.parse($("#booking_start_date").val());
+      var end_date = $("#booking_end_date").datepicker("getDate");
+      var start_date = $("#booking_start_date").datepicker("getDate");
       var num_days = (end_date - start_date)/86400000;
         if (num_days == 0) {
           num_days = 1;
-          end_date = new Date(end_date + 86400000);
-          $("#booking_end_date").val(end_date);
+          end_date.setTime(end_date.getTime() + (1000*60*60*24))
+         $('#booking_end_date').datepicker("setDate", end_date);
         }
       var price_per_day = parseInt($(".price_per_day").text());
       var fee = 50;
