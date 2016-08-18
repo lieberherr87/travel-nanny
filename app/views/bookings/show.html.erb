@@ -4,6 +4,7 @@
 
   <p><b>Your Nanny is: <%= @booking.offer.user.first_name %></b></p>
   <%= cl_image_tag @booking.offer.user.image, class:"avatar avatar-large" %>
+  <p><b>Total Price: </b><%= @booking.full_price %> USD</p>
   <p><b>Location: </b><%= @booking.offer.location %></p>
   <p><b>From </b><%= @booking.start_date %> <b> to </b> <%= @booking.end_date %></p>
 
