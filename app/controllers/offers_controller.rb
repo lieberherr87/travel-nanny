@@ -49,9 +49,7 @@ class OffersController < ApplicationController
     redirect_to new_offer_path
   end
 
-  private
-
-
+private
 
   def offer_params
     params.require(:offer).permit(:location, :price_per_day, :superpower, :video, :description)
