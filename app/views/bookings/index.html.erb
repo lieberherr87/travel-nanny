@@ -23,12 +23,10 @@
           <td><%= booking.offer.user.first_name %></td>
           <td><%= booking.offer.location %></td>
           <td><%=  %></td>
-          <td><%= link_to 'Show', booking_path(booking) %> </td>
+          <td><%= link_to 'Cancel', booking_path(booking), method: :delete, data: { confirm: 'Are you sure?' } %> </td>
         </tr>
       <% end %>
     </tbody>
   </table>
 
-
-  <%= link_to "Create a new booking", offers_path %>
 </div>
