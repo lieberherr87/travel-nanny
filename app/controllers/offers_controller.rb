@@ -1,9 +1,15 @@
 class OffersController < ApplicationController
   def index
     #@offer = current_user.offer
+    if params[:search]
+      @offers = Offer.where('location ILIKE ?', params[:search])
+      flash.now[:notice] = "There are #{@offers.count} in this category".html_safe
 
-
-    if params[:location]
+      @hash = Gmaps4rails.build_markers(@offers) do |offer, marker|
+        marker.lat offer.latitude
+        marker.lng offer.longitude
+      end
+    elsif params[:location]
       @offers = Offer.where(:location => params[:location])
       flash[:notice] = "There are #{@offers.count} in this category".html_safe
 
@@ -11,7 +17,6 @@ class OffersController < ApplicationController
         marker.lat offer.latitude
         marker.lng offer.longitude
       end
-
     else
       @offers = Offer.where.not(latitude: nil, longitude: nil)
 
