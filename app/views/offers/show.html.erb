@@ -31,9 +31,8 @@
 <div class="container">
 
   <div class="col-md-6">
-    <%= cl_video_tag("l0skae6tvfanvjt7jeat.mp4", :width => 350, :height => 250, :crop => "fill", :loop => false, :autoplay => true, :muted => true) %>
+    <%= embed("https://www.youtube.com/watch?v=BkaFxO-YOX0&ab_channel=MattConnell") %>
   </div>
-
   <div class="col-md-6">
     <!-- Calendar -->
     <table>
@@ -44,16 +43,27 @@
         <tr>
           <td><p>Select Date </p></td>
           <td>
-          <form action="bookings/new" method="POST">
-               <input type="date" name="start_date" />
-            to <input type="date" name="end_date" />
-          </form>
+
+            <%= simple_form_for @booking do |f| %>
+              <div class="form-inputs">
+                <div class="input-daterange input-group" id="datepicker">
+                  <%= f.input :start_date, as: :string, required: true, label: false, input_html: { class: 'input-sm form-control start-date' } %>
+                  <span class="input-group-addon">to</span>
+                  <%= f.input :end_date, as: :string, required: true, label: false, input_html: { class: 'input-sm form-control end-date'} %>
+                 </div>
+                <%= f.input :offer_id, as: :hidden, input_html: {value: params[:offer_id]} %>
+              </div>
+              <br>
+              <div class="form-actions">
+                <%= f.button :submit, "Submit booking" %>
+              </div>
+            <% end %>
           </td>
         </tr>
 
         <tr>
           <td><p>Price per day:</p></td>
-          <td class="text-right"><p><%= @offer.price_per_day %>USD</p></td>
+          <td class="text-right"><p><span class="price_per_day"><%= @offer.price_per_day %></span>USD</p></td>
         </tr>
         <tr>
           <td><p>Fees:</p></td>
@@ -61,7 +71,7 @@
         </tr>
         <tr>
           <td><p><b>Total Price per Day:</p></td>
-          <td class="text-right"><p><%= @offer.price_per_day + 50 %> USD</b></p></td>
+          <td class="text-right"><p><span class="full-price"><%= @offer.price_per_day + 50 %></span> USD</b></p></td>
         </tr>
         <tr>
           <td><%= link_to 'Book', new_booking_path(offer_id: @offer.id), {class: "btn btn-danger"}  %></td>
@@ -76,7 +86,7 @@
 <!-- Offer Description-->
 <div class="container">
   <p><b>Description of the Nanny </b></p>
-  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quasi excepturi ex saepe commodi voluptate, veritatis asperiores repudiandae sit maiores! Voluptas sint vitae inventore delectus nobis maiores esse dolor quo, quibusdam.</p>
+  <p><%= @offer.description %></p>
 </div>
 
 
@@ -89,9 +99,24 @@
 <!-- Javascript-->
 <% content_for(:after_js) do %>
   <%= javascript_tag do %>
-    $(document).ready(function() {
-      var coord = <%= raw @offer_coordinates %>;
-      alert('Offer coordinates are ' + coord.lat + ', ' + coord.lng);
+    $('.input-daterange').datepicker({
+        todayHighlight: true,
+    });
+    $(document).ready(function(){
+      $("#booking_end_date").on("change", function(event){
+      var end_date = $("#booking_end_date").datepicker("getDate");
+      var start_date = $("#booking_start_date").datepicker("getDate");
+      var num_days = (end_date - start_date)/86400000;
+        if (num_days == 0) {
+          num_days = 1;
+          end_date.setTime(end_date.getTime() + (1000*60*60*24))
+         $('#booking_end_date').datepicker("setDate", end_date);
+        }
+      var price_per_day = parseInt($(".price_per_day").text());
+      var fee = 50;
+      var full_price = (end_date - start_date)/86400000 * price_per_day + fee;
+      $(".full-price").text(full_price);
+      });
     });
   <% end %>
 <% end %>

@@ -2,36 +2,36 @@
 
 <div class="container">
   <h1>List of all Nannys</h1>
-  <table class= "table table-hover">
-    <thead>
-      <tr>
-        <th>Location</th>
-        <th>Price per Day</th>
-        <th colspan="3"></th>
-      </tr>
-    </thead>
-
-    <tbody>
-      <% @offers.each do |offer| %>
-        <tr>
-          <td><%= offer.location %></td>
-          <td><%= offer.price_per_day %></td>
-          <td><%= link_to 'Show', offer %> |
-          <%= link_to 'Book', new_booking_path(offer_id: offer.id) %></td>
-        </tr>
-      <% end %>
-    </tbody>
-  </table>
+  <% @offers.each do |offer| %>
+  <div class="col-md-2 col-xs-4">
+    <div class="text-box">
+    <%= link_to offer do %>
+    <%= cl_image_tag offer.user.image, class:"avatar avatar-square" %>
+      <div class="avatar-name">
+        <p><%= offer.user.first_name %></p>
+      </div>
+      <div class="avatar-description">
+      <p><%= offer.location %></p>
+      <p><b><%= offer.price_per_day %> USD</b></p>
+      </div>
+    <% end %>
+    </div>
+  </div>
+  <% end %>
+</div>
 
 <!-- Map -->
-
   <div id="map" style="width: 100%; height: 600px;"></div>
 
   <% content_for(:after_js) do %>
     <%= javascript_tag do %>
       $(document).on('ready', function() {
+        var styles = [ /* the style copied from Snazzy maps */ ];
         var handler = Gmaps.build('Google');
-        handler.buildMap({ internal: { id: 'map' } }, function() {
+        handler.buildMap({
+            provider: {
+            styles: styles } },
+          internal: { id: 'map' } }, function() {
           markers = handler.addMarkers(<%= raw @hash.to_json %>);
           handler.bounds.extendWith(markers);
           handler.fitMapToBounds();
@@ -45,3 +45,6 @@
     <% end %>
   <% end %>
 </div>
+
+
+

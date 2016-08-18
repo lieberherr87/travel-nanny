@@ -2,6 +2,8 @@
  * Fonts
  * ------------------------------------- */
 // Google fonts
+
+@import url("https://fonts.googleapis.com/css?family=Lato");
 @import url("https://fonts.googleapis.com/css?family=Open+Sans:400,300,700|Raleway:400,100,300,700,500");
 $base-font: "Open Sans", "Helvetica", "sans-serif";
 $header-font: "Raleway", "Helvetica", "sans-serif";
@@ -31,6 +33,8 @@ $blue: #469AE0;
 $yellow: #FDB631;
 $orange: #E67E22;
 $green: #32B796;
+$purple:#43417F;
+$pink:#C60095;
 
 // Gray scale
 $gray-darker:  lighten(#000, 13.5%); // #222
