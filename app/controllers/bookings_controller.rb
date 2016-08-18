@@ -25,6 +25,12 @@ class BookingsController < ApplicationController
   end
 
   def destroy
+    booking.destroy
+    redirect_to bookings_path
+  end
+
+  def total_price
+
   end
 
   private
@@ -38,4 +44,5 @@ class BookingsController < ApplicationController
     def booking_params
       params.require(:booking).permit(:start_date, :end_date, :full_price, :offer_id)
     end
+
 end
