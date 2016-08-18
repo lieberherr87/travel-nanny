@@ -14,8 +14,14 @@ class BookingsController < ApplicationController
   end
 
   def create
-    @booking = current_user.bookings.create(booking_params)
+    @offer = Offer.find(params[:offer_id])
+    @booking = @offer.bookings.build(booking_params)
+    @booking.user = current_user
+    # calculate full price
+    @booking.full_price = 250
+    @booking.save
     redirect_to booking_path(@booking)
+    # redirect_to
   end
 
   def edit
@@ -36,13 +42,15 @@ class BookingsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_booking
-      @booking = current_user.bookings.find_by(id: params[:id])
-
+      if current_user
+        @booking = current_user.bookings.find_by(id: params[:id])
+      else
+        redirect_to new_user_session_path
+      end
     end
 
     # Only allow a trusted parameter "white list" through.
     def booking_params
-      params.require(:booking).permit(:start_date, :end_date, :full_price, :offer_id)
+      params.require(:booking).permit(:start_date, :end_date, :full_price)
     end
-
 end

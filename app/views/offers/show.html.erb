@@ -43,38 +43,34 @@
         <tr>
           <td><p>Select Date </p></td>
           <td>
-
-            <%= simple_form_for @booking do |f| %>
-              <div class="form-inputs">
-                <div class="input-daterange input-group" id="datepicker">
-                  <%= f.input :start_date, as: :string, required: true, label: false, input_html: { class: 'input-sm form-control start-date' } %>
-                  <span class="input-group-addon">to</span>
-                  <%= f.input :end_date, as: :string, required: true, label: false, input_html: { class: 'input-sm form-control end-date'} %>
-                 </div>
-                <%= f.input :offer_id, as: :hidden, input_html: {value: params[:offer_id]} %>
+            <%= simple_form_for [@offer, @booking] do |f| %>
+            <div class="form-inputs">
+              <div class="input-daterange input-group" id="datepicker">
+              <%= f.input :start_date, as: :string, required: true, label: false, input_html: { class: 'input-sm form-control start-date' } %>
+              <span class="input-group-addon">to</span>
+              <%= f.input :end_date, as: :string, required: true, label: false, input_html: { class: 'input-sm form-control end-date'} %>
               </div>
-              <br>
-
-            <% end %>
+            </div>
+            <tr>
+              <td><p>Price per day:</p></td>
+              <td class="text-right"><p><span class="price_per_day"><%= @offer.price_per_day %></span>USD</p></td>
+            </tr>
+            <tr>
+              <td><p>Fees:</p></td>
+              <td class="text-right"><p> 50 USD</p></td>
+            </tr>
+            <tr>
+              <td><p><b>Total Price:</p></td>
+              <td class="text-right"><p><span class="full-price"><%= @offer.price_per_day + 50 %></span> USD</b></p></td>
+            </tr>
+            <tr>
+              <td><%= f.submit "Create booking" %></td>
+            </tr>
+          <% end %>
           </td>
         </tr>
 
-        <tr>
-          <td><p>Price per day:</p></td>
-          <td class="text-right"><p><span class="price_per_day"><%= @offer.price_per_day %></span>USD</p></td>
-        </tr>
-        <tr>
-          <td><p>Fees:</p></td>
-          <td class="text-right"><p> 50 USD</p></td>
-        </tr>
-        <tr>
-          <td><p><b>Total Price:</p></td>
-          <td class="text-right"><p><span class="full-price"><%= @offer.price_per_day + 50 %></span> USD</b></p></td>
-        </tr>
-        <tr>
-          <td><%= link_to 'Book now', bookings_path(offer_id: @offer.id), method: :POST, {class: "btn btn-danger"}  %></td>
-          <td></td>
-        </tr>
+
       </tbody>
     </table>
   </div>
@@ -99,6 +95,7 @@
   <%= javascript_tag do %>
     $('.input-daterange').datepicker({
         todayHighlight: true,
+        format: "yyyy-mm-dd"
     });
     $(document).ready(function(){
       $("#booking_end_date").on("change", function(event){
