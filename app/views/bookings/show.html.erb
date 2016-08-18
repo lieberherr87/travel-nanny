@@ -1,2 +1,16 @@
-<h1>Bookings#show</h1>
-<p>Find me in app/views/bookings/show.html.erb</p>
+<div class="container">
+  <h1>Booking Summary</h1>
+  <p>Find the Booking Details here:</p>
+
+  <p><b>Your Nanny is: <%= @booking.offer.user.first_name %></b></p>
+  <%= cl_image_tag @booking.offer.user.image, class:"avatar avatar-large" %>
+  <p><b>Location: </b><%= @booking.offer.location %></p>
+  <p><b>From </b><%= @booking.start_date %> <b> to </b> <%= @booking.end_date %></p>
+
+  <p><%= link_to 'Back to all Bookings', bookings_path %> </p>
+  <% unless @booking.offer.user.nanny? %>
+     <p><%= link_to 'Cancel Booking', bookings_path, method: :delete, data: { confirm: 'Are you sure you want to cancel this booking?' } %></p>
+  <% end %>
+</div>
+
+
