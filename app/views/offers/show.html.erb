@@ -54,9 +54,7 @@
                 <%= f.input :offer_id, as: :hidden, input_html: {value: params[:offer_id]} %>
               </div>
               <br>
-              <div class="form-actions">
-                <%= f.button :submit, "Submit booking" %>
-              </div>
+
             <% end %>
           </td>
         </tr>
@@ -70,11 +68,11 @@
           <td class="text-right"><p> 50 USD</p></td>
         </tr>
         <tr>
-          <td><p><b>Total Price per Day:</p></td>
+          <td><p><b>Total Price:</p></td>
           <td class="text-right"><p><span class="full-price"><%= @offer.price_per_day + 50 %></span> USD</b></p></td>
         </tr>
         <tr>
-          <td><%= link_to 'Book', new_booking_path(offer_id: @offer.id), {class: "btn btn-danger"}  %></td>
+          <td><%= link_to 'Book now', bookings_path(offer_id: @offer.id), method: :POST, {class: "btn btn-danger"}  %></td>
           <td></td>
         </tr>
       </tbody>
