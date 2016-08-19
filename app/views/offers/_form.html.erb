@@ -1,9 +1,10 @@
 <%= simple_form_for @offer do |f| %>
+<div class="form-group col-lg-6">
   <div class="form-inputs">
     <%= f.input :location, required: true, autofocus: true %>
     <%= f.input :price_per_day, required: true %>
     <%= f.input :superpower %>
-    <%= f.input :description %>
+    <%= f.input :description, as: :text %>
     Enter your YouTube URL <%= f.input :video %>
   </div>
 
@@ -11,3 +12,4 @@
     <%= f.button :submit, "Create offer" %>
   </div>
 <% end %>
+</div>
