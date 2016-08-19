@@ -89,7 +89,9 @@
 <!-- Add Offer Review-->
 <div class="container">
   <h3>Reviews</h3>
-
+  <p><% @offer.reviews.each do |review|%></p>
+      <%= review.content %>
+  <%end %>
 </div>
 
 <!-- Javascript-->
