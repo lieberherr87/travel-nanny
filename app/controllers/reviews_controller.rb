@@ -1,6 +1,11 @@
 class ReviewsController < ApplicationController
   before_action :find_booking, only: [ :new, :create, :show]
 
+  def index
+    @booking = Booking.all
+  end
+
+
   def show
     @review = Review.find[params:id]
   end
@@ -10,6 +15,7 @@ class ReviewsController < ApplicationController
   end
 
   def create
+    #unless @review.present? alert:'Review already present, You can not overwrite it !'
     @booking = Booking.find(params[:booking_id])
     @review = Review.new(review_params)
     @review.booking = @booking
