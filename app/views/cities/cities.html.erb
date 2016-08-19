@@ -1,22 +1,27 @@
-<h1><strong>Where is your next destination?</strong></h1>
+<h1 class="text-center"><strong>Where is your next destination?</strong></h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Countries</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+<div class="container text">
 
-
-
-<!-- put each city in the right category -->
-
- <tbody>
-    <% @countries.each do |c| %>
+  <table>
+    <thead>
       <tr>
-        <td><%= link_to c, offers_path(:country=> c ) %></td>
+        <th><h3>Countries(A-Z)</h3></th>
+        <th colspan="3"></th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
+
+
+
+  <!-- put each city in the right category -->
+
+    <tbody>
+      <div class="container">
+        <% @countries.each do |c| %>
+          <tr>
+            <td class="lobster"><%= link_to c, offers_path(:country=> c ) %></td>
+          </tr>
+        <% end %>
+
+    </tbody>
+  </table>
+</div>
