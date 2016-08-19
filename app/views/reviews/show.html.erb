@@ -1,0 +1,9 @@
+<h1><strong> Reviews </strong></h1>
+
+  <% @booking.reviews.each do |review| %>
+    <p><strong>Content:</strong> <%= review.content %>,
+    <br><strong>Rating:</strong> <%= review.rating %></p>
+
+  <% end %>
+
+
