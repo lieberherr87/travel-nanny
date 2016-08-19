@@ -11,20 +11,14 @@ Rails.application.routes.draw do
   devise_for :users,
     controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
 
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  # resources :bookings
-
   resources :offers do
-    resources :bookings, only: [:new, :create]
+    resources :bookings, only: [:index, :new, :create, :destroy]
   end
 
-  resources :bookings, only: [:index, :show]
-  # resources :bookings do
-  #   resources :reviews, only: [:show, :new, :create]
-  # end
+  resources :bookings, only: [:index, :show, :destroy]
 
   # resources :bookings do
-  #   resources :reviews, only: [:index, :show, :new, :create]
+  #   resources :reviews, only: [:show, :new, :create]
   # end
 
   root "pages#index"
