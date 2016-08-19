@@ -15,7 +15,7 @@
  <tbody>
     <% @countries.each do |c| %>
       <tr>
-        <td><%= c %></td>
+        <td><%= link_to c, offers_path(:country=> c ) %></td>
       </tr>
     <% end %>
   </tbody>
