@@ -15,17 +15,14 @@ Rails.application.routes.draw do
   # resources :bookings
 
   resources :offers do
-    resources :bookings, only: [:new, :create]
+    resources :bookings, only: [:new, :create] do
+      resources :reviews, only: [:index,:show, :new, :create]
+    end
   end
 
-  resources :bookings, only: [:index, :show]
-  # resources :bookings do
-  #   resources :reviews, only: [:show, :new, :create]
-  # end
-
-  # resources :bookings do
-  #   resources :reviews, only: [:index, :show, :new, :create]
-  # end
+  resources :bookings do
+    resources :reviews, only: [:index, :show, :new, :create]
+  end
 
   root "pages#index"
 
