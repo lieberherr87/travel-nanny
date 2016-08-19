@@ -21,6 +21,6 @@ booking1 = user1.bookings.create(start_date: 20161001, end_date: 20161101, full_
 booking2 = user2.bookings.create(start_date: 20161201, end_date: 20161206, full_price:"400", offer: offer2)
 booking3 = user3.bookings.create(start_date: 20161101, end_date: 20161104, full_price:"500", offer: offer3)
 
-# review1 = booking1.reviews.create(content: "blabliblureview", rating: 3)
-# review2 = booking2.reviews.create(content: "blabliblureview", rating: 1)
-# review3 = booking3.reviews.create(content: "blabliblureview", rating: 5)
+review1 = booking1.review.create(content: "blabliblureview", rating: 3)
+review2 = booking2.review.create(content: "blabliblureview", rating: 1)
+review3 = booking3.review.create(content: "blabliblureview", rating: 5)
