@@ -1,6 +1,11 @@
 class ReviewsController < ApplicationController
   before_action :find_booking, only: [ :new, :create, :show]
 
+  def index
+    @booking = Booking.all
+  end
+
+
   def show
     @review = Review.find[params:id]
   end
