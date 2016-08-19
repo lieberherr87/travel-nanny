@@ -19,10 +19,11 @@ Rails.application.routes.draw do
     resources :bookings, only: [:new, :create]
   end
 
-
   resources :bookings do
     resources :reviews, only: [:index, :show, :new, :create]
   end
+
+  get "/cities" => "pages#city_index", as: :cities
 
 end
 
