@@ -1,7 +1,7 @@
 
 Rails.application.routes.draw do
 
-
+  root "pages#index"
 
   get '/search' => 'offers#search'
 
@@ -24,5 +24,5 @@ Rails.application.routes.draw do
     resources :reviews, only: [:index, :show, :new, :create]
   end
 
-  root "pages#index"
+end
 
