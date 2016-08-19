@@ -2,11 +2,12 @@
 
 <div class="container">
   <h1>List of all Nannys</h1>
+  <div class="row">
   <% @offers.each do |offer| %>
   <div class="col-md-2 col-xs-4">
     <div class="text-box">
     <%= link_to offer do %>
-    <%= cl_image_tag offer.user.image, class:"avatar avatar-square" %>
+    <%= cl_image_tag offer.user.image, class:"avatar avatar-large" %>
       <div class="avatar-name">
         <p><%= offer.user.first_name %></p>
       </div>
@@ -18,6 +19,7 @@
     </div>
   </div>
   <% end %>
+</div>
 </div>
 
 <!-- Map -->
