@@ -1,0 +1,22 @@
+<h1><strong>Where is your next destination?</strong></h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Countries</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+
+
+<!-- put each city in the right category -->
+
+ <tbody>
+    <% @countries.each do |c| %>
+      <tr>
+        <td><%= link_to c, offers_path(:country=> c ) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

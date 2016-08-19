@@ -7,6 +7,9 @@ class OffersController < ApplicationController
     elsif params[:location]
       @offers = Offer.where(:location => params[:location])
       flash.now[:notice] = "There are #{@offers.size} in this category".html_safe
+    elsif params[:country]
+      @offers = Offer.where(:country => params[:country])
+      flash.now[:notice] = "There are #{@offers.size} in this category".html_safe
     else
       @offers = Offer.where.not(latitude: nil, longitude: nil)
     end
