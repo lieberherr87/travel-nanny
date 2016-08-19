@@ -1,6 +1,6 @@
-
+<div class="container">
 <h1>Add a Review </h1>
-
+<div class="form-group col-lg-6">
 <% if @review.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@review.errors.count, "error") %> prohibited this review from being saved:</h2>
@@ -13,9 +13,9 @@
     </div>
   <% end %>
 
-<%= form_for [@booking, @review] do |f| %>
+<%= simple_form_for [@booking, @review] do |f| %>
   <div class="field">
-  <%= f.text_field :content %>
+  <%= f.input :content, as: :text  %>
   </div>
 
    <div class="field">
@@ -24,7 +24,9 @@
   </div>
 
   <div class="actions">
-    <%= f.submit "add a review" %>
+    <%= f.submit "add a review", :class => 'btn create_booking' %>
   </div>
 
 <% end %>
+</div>
+</div>

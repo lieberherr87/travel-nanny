@@ -29,69 +29,73 @@
 
  <!-- Offer Video and Offer price per Day -->
 <div class="container">
-
   <div class="col-md-6">
-  <% if @offer.video %>
-    <%= embed(@offer.video) %>
-  <% end %>
-  </div>
-  <div class="col-md-6">
-    <!-- Calendar -->
-    <table>
-      <thead>
-        <th colspan="2"></th>
-      </thead>
-      <tbody>
-        <tr>
-          <td><p>Select Date </p></td>
-          <td>
-            <%= simple_form_for [@offer, @booking] do |f| %>
-            <div class="form-inputs">
-              <div class="input-daterange input-group" id="datepicker">
-              <%= f.input :start_date, as: :string, required: true, label: false, input_html: { class: 'input-sm form-control start-date' } %>
-              <span class="input-group-addon">to</span>
-              <%= f.input :end_date, as: :string, required: true, label: false, input_html: { class: 'input-sm form-control end-date'} %>
-              </div>
-            </div>
-            <tr>
-              <td><p>Price per day:</p></td>
-              <td class="text-right"><p><span class="price_per_day"><%= @offer.price_per_day %></span> USD</p></td>
-            </tr>
-            <tr>
-              <td><p>Fees:</p></td>
-              <td class="text-right"><p> 50 USD</p></td>
-            </tr>
-            <tr>
-              <td><p><b>Total Price:</p></td>
-              <td class="text-right"><p><span class="full-price"><%= @offer.price_per_day + 50 %></span> USD</b></p></td>
-            </tr>
-            <tr>
-              <td><%= f.submit "Create booking" %></td>
-            </tr>
-          <% end %>
-          </td>
-        </tr>
-
-
-      </tbody>
-    </table>
+    <div class="embed-container">
+      <% if @offer.video %>
+        <%= embed(@offer.video) %>
+      <% end %>
+    </div>
   </div>
 
+  <div class="col-md-6">
+  <div class="booking-form">
+  <p><b>Book <%= @offer.user.first_name %> as a Nanny</b></p>
+  <table>
+    <thead>
+      <th colspan="2"></th>
+    </thead>
+    <tbody>
+    <tr>
+      <td><p>Select Date </p></td>
+    <td>
+    <%= simple_form_for [@offer, @booking] do |f| %>
+      <div class="form-inputs">
+        <div class="input-daterange input-group" id="datepicker">
+          <%= f.input :start_date, as: :string, required: true, label: false, input_html: { class: 'input-sm form-control start-date' } %>
+          <span class="input-group-addon">to</span>
+          <%= f.input :end_date, as: :string, required: true, label: false, input_html: { class: 'input-sm form-control end-date'} %>
+        </div>
+      </div>
+    </td>
+    </tr>
+    <tr>
+      <td><p>Price per day:</p></td>
+      <td class="text-right"><p><span class="price_per_day"><%= @offer.price_per_day %></span> USD</p></td>
+    </tr>
+    <tr>
+      <td><p>Fees:</p></td>
+      <td class="text-right"><p> 50 USD</p></td>
+    </tr>
+    <tr>
+      <td><p><b>Total Price:</p></td>
+      <td class="text-right"><p><span class="full-price"><%= @offer.price_per_day + 50 %></span> USD</b></p></td>
+    </tr>
+    <tr>
+      <td><%= f.submit "Create booking", :class => 'btn create_booking' %></td>
+    </tr>
+    <% end %>
+    </tr>
+    </tbody>
+  </table>
+  </div>
+  </div>
 </div>
 
 <!-- Offer Description-->
 <div class="container">
-  <p><b>Description of the Nanny </b></p>
+  <p><b>About me</b></p>
   <p><%= @offer.description %></p>
 </div>
 
 
 <!-- Add Offer Review-->
 <div class="container">
-  <h3>Reviews</h3>
+  <h4>Reviews</h4>
+  <ul class="dashed">
   <p><% @offer.reviews.each do |review|%></p>
-      <%= review.content %>
+   <li> <%= review.content %></li>
   <%end %>
+  </ul>
 </div>
 
 <!-- Javascript-->
