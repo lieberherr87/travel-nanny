@@ -26,6 +26,7 @@
           <td><%= link_to 'Show', booking_path(booking) %> </td>
         <% unless current_user.nanny? %>
           <td><%= link_to 'Cancel', booking_path(booking), method: :delete, data: { confirm: 'Are you sure?' } %> </td>
+          <td><%= link_to 'Add review', new_booking_review_path(booking) %> </td>
         <% end %>
         </tr>
       <% end %>

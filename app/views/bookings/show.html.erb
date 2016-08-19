@@ -20,6 +20,7 @@
   <p><%= link_to 'Back to all Bookings', bookings_path %> </p>
   <% unless current_user.nanny? %>
      <p><td><%= link_to 'Cancel Booking', booking_path(@booking), method: :delete, data: { confirm: 'Are you sure?' } %> </td></p>
+     <p><td><%= link_to 'Add review', new_booking_review_path(booking) %> </td></p>
   <% end %>
 </div>
 
