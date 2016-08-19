@@ -24,5 +24,3 @@ class ReviewController < ApplicationController
     @booking = Booking.find(params[:booking_id])
   end
 end
-
-
