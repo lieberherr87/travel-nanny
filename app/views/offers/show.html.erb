@@ -31,7 +31,9 @@
 <div class="container">
 
   <div class="col-md-6">
-    <%= embed("https://www.youtube.com/watch?v=BkaFxO-YOX0&ab_channel=MattConnell") %>
+  <% if @offer.video %>
+    <%= embed(@offer.video) %>
+  <% end %>
   </div>
   <div class="col-md-6">
     <!-- Calendar -->
