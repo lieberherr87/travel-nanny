@@ -4,10 +4,6 @@ Rails.application.routes.draw do
 
   get '/search' => 'offers#search'
 
-  get 'review/show'
-
-  get 'review/new'
-
   devise_for :users,
     controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
 
@@ -17,9 +13,9 @@ Rails.application.routes.draw do
 
   resources :bookings, only: [:index, :show, :destroy]
 
-  # resources :bookings do
-  #   resources :reviews, only: [:show, :new, :create]
-  # end
+  resources :bookings do
+    resources :reviews, only: [:show, :new, :create]
+  end
 
   root "pages#index"
 
