@@ -49,10 +49,11 @@
         <% end %>
 
         <% if user_signed_in? && current_user.facebook_picture_url %>
-          <%= image_tag current_user.facebook_picture_url, height: 55, width: 55 %>
-        <% elsif user_signed_in? && current_user.image %>
-          <%= image_tag current_user.image, height: 55, width: 55 %>
+          <%= image_tag current_user.facebook_picture_url, height: 54, width: 55 %>
+        <% elsif user_signed_in? && current_user.image_url %>
+          <%= image_tag current_user.image, height: 54, width: 55 %>
         <% end %>
+
         <% if user_signed_in? %>
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><%= current_user.first_name %> <span class="caret"></span></a>
