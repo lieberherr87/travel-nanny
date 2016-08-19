@@ -1,3 +1,63 @@
 // Place all the styles related to the offers controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.offer-profile {
+  padding: 0px;
+}
+
+.avatar:hover {
+  transform: scale(1.01)
+}
+
+.container {
+  width: 1000px;
+}
+
+ul {
+  margin: 0;
+}
+ul.dashed {
+  list-style-type: none;
+}
+ul.dashed > li {
+  text-indent: -5px;
+}
+ul.dashed > li:before {
+  content: "-";
+  text-indent: -5px;
+}
+
+.btn {
+  border-radius: 5px;
+  padding: 10px;
+  text-align: center;
+  background: #F22E42;
+  color: white;
+  border-color: #F22E42;
+}
+
+.btn:hover {
+  color: white;
+  text-decoration: none;
+  background: #A72429;
+}
+
+.embed-container {
+  position: relative;
+  padding-bottom: 56.25%;
+  padding-top: 30px;
+  height: 0;
+  overflow: hidden;
+  width: 100%;
+  height: auto;
+  margin-bottom: 12px;
+}
+
+.embed-container iframe,
+.embed-container object,
+.embed-container embed {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+}
