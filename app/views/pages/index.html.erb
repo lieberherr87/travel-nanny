@@ -23,12 +23,18 @@
     <div class="text-box">
       <h3>Why become a TravelNanny?</h3>
       <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam animi architecto deleniti ratione eaque eius sapiente vitae velit sequi culpa dolor error maiores quis minima nostrum accusamus, odit voluptates non.</p>
+      <div class="text-center">
+        <%= link_to 'Become a nanny!', edit_user_registration_path, {class: "btn btn-warning btn-lg"} %>
+      </div>
     </div>
   </div>
   <div class="col-md-6">
     <div class="text-box">
       <h3>Why hire a TravelNanny?</h3>
       <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Suscipit esse beatae, sit cum? Dolorem velit ullam quas totam doloremque reprehenderit fugiat! Necessitatibus molestiae officia maxime, sequi molestias ea, odit hic!</p>
+      <div class="text-center">
+        <%= link_to 'View all', offers_path, {class: "btn btn-warning btn-lg"} %>
+      </div>
     </div>
   </div>
 </div>
@@ -73,9 +79,6 @@
         <% end %>
       </div>
     </div>
-    <div class="text-center">
-   <%= link_to 'View all', offers_path, {class: "btn btn-warning btn-lg"} %>
-   </div>
   </div>
 </div>
 
