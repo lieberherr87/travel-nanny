@@ -22,9 +22,9 @@
           <td><%= booking.end_date %></td>
           <td><%= booking.offer.user.first_name %></td>
           <td><%= booking.offer.location %></td>
-          <td><%=  %></td>
+          <td><%= booking.full_price %> USD</td>
           <td><%= link_to 'Show', booking_path(booking) %> </td>
-        <% unless booking.offer.user.nanny? %>
+        <% unless current_user.nanny? %>
           <td><%= link_to 'Cancel', booking_path(booking), method: :delete, data: { confirm: 'Are you sure?' } %> </td>
         <% end %>
         </tr>
