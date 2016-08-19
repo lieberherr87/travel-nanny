@@ -7,10 +7,18 @@
   <p><b>Location: </b><%= @booking.offer.location %></p>
   <p><b>From </b><%= @booking.start_date %> <b> to </b> <%= @booking.end_date %></p>
 
+
+  <div id="reviews">
+  <% if @booking.review.blank? %>
+    Be the first to leave a review for <%= @booking.offer.user.first_name %>
+  <% else %>
+      <%= render 'reviews/show', review: @booking.review %>
+  <% end %>
+</div>
+
   <p><%= link_to 'Back to all Bookings', bookings_path %> </p>
   <% unless @booking.offer.user.nanny? %>
      <p><%= link_to 'Cancel Booking', bookings_path, method: :delete, data: { confirm: 'Are you sure you want to cancel this booking?' } %></p>
   <% end %>
 </div>
-
 
