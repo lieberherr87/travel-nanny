@@ -1,8 +1,9 @@
 class PagesController < ApplicationController
-  def index
-  end
-
-  def city_index
+  def cities
+    @countries = Offer.where.not(country: nil).map{ |offer| offer.country }.uniq.sort
   end
 
 end
+
+
+

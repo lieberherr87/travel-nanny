@@ -23,7 +23,7 @@ Rails.application.routes.draw do
     resources :reviews, only: [:index, :show, :new, :create]
   end
 
-  get "/cities" => "pages#city_index", as: :cities
+  get "/cities" => "pages#cities", as: :cities
 
 end
 
