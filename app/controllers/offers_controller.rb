@@ -3,10 +3,10 @@ class OffersController < ApplicationController
     #@offer = current_user.offer
     if params[:search]
       @offers = Offer.where('location ILIKE ?', params[:search])
-      flash.now[:notice] = "There are #{@offers.count} in this category".html_safe
+      flash.now[:notice] = "There are #{@offers.size} in this category".html_safe
     elsif params[:location]
       @offers = Offer.where(:location => params[:location])
-      flash[:notice] = "There are #{@offers.count} in this category".html_safe
+      flash[:notice] = "There are #{@offers.size} in this category".html_safe
     else
       @offers = Offer.where.not(latitude: nil, longitude: nil)
     end

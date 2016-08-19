@@ -9,9 +9,9 @@
 User.destroy_all
 
 
-user1 = User.create(first_name:"Steffen", last_name: "Rudishüli", email: "test@mail.com", password: "password", image: "http://res.cloudinary.com/vizzleo/image/upload/v1471532372/anne_vfchqv.jpg")
-user2 = User.create(first_name:"Bani", last_name: "Vanani", email: "test2@mail.com", password: "password", image: "http://res.cloudinary.com/vizzleo/image/upload/v1471532383/romain_ryjgyd.jpg")
-user3 = User.create(first_name:"Hanna", last_name: "Montana", email: "test3@mail.com", password: "password", image: "http://res.cloudinary.com/vizzleo/image/upload/v1471532387/seb_cjnhku.jpg")
+user1 = User.create(first_name:"Steffen", last_name: "Rudishüli", email: "test@mail.com", password: "password", image: "image/upload/v1471532383/romain_ryjgyd.jpg")
+user2 = User.create(first_name:"Bani", last_name: "Vanani", email: "test2@mail.com", password: "password", image: "image/upload/v1471532387/seb_cjnhku.jpg")
+user3 = User.create(first_name:"Hanna", last_name: "Montana", email: "test3@mail.com", password: "password", image: "image/upload/v1471532372/anne_vfchqv.jpg")
 
 offer1 = user1.create_offer(location:"Züri", price_per_day: 100, description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe vel aperiam harum reiciendis velit, autem itaque pariatur deserunt at assumenda voluptates quasi laborum doloremque fuga aspernatur mollitia quaerat soluta ratione.")
 offer2 = user2.create_offer(location:"London", price_per_day: 200, description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eveniet et dolor voluptate officia blanditiis eum numquam suscipit reiciendis, incidunt non, impedit, quibusdam velit praesentium nulla alias quis obcaecati nihil rerum.")
