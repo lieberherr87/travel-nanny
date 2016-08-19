@@ -27,4 +27,3 @@ booking3 = user6.bookings.create(start_date: 20161101, end_date: 20161104, full_
 review1 = booking1.create_review(content: "My kids had a great time.", rating: 3, booking: booking1)
 review2 = booking2.create_review(content: "My children loved the nanny.", rating: 1, booking: booking2)
 review3 = booking3.create_review(content: "Would book it again!", rating: 5, booking: booking3)
-
