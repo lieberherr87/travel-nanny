@@ -7,7 +7,15 @@ class Offer < ApplicationRecord
   validates :price_per_day, presence: true
 
   geocoded_by :location
+
+  reverse_geocoded_by :latitude, :longitude do |obj, results|
+    if geo = results.first
+      obj.country = geo.country
+    end
+  end
+
   after_validation :geocode, if: :location_changed?
+  after_validation :reverse_geocode, if: :location_changed?
 end
 
 
