@@ -8,6 +8,7 @@
   align-items: center;
   justify-content: center;
 }
+
 .banner {
   h1 {
   font-size: 65px;
@@ -28,3 +29,48 @@
   border-radius: 10px;
   }
 }
+
+.pages {
+  .date {
+    color:black;
+  }
+  .banner {
+    position:relative;
+    top: -59px;
+    .form {
+      position:relative;
+      bottom:0px;
+    }
+    .search {
+      color: black;
+    }
+  }
+}
+
+.banner-content .btn {
+  color:white;
+  border: 2px white solid;
+  background-color:transparent;
+  height:40px;
+  width:70px;
+  padding:0px;
+}
+
+.banner {
+  background-image: linear-gradient(-225deg, rgba(50,0,200,0.5) 0%, rgba(36,0,30,0.5) 50%), image-url('travelnanny_banner.jpg');
+}
+
+@media screen and (max-width: 1024px) {
+  .pages {
+    .navbar {
+      background-color: white;
+    }
+    .links a {
+        color: gray !important;
+      }
+    }
+    .lobster {
+      color: gray !important;
+    }
+  }
+

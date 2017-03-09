@@ -8,17 +8,25 @@ form {
   background: #333333;
   color: #CCCCCC;
   padding: 10px 0;
-  position: relative;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  height: 150px;
 }
 
 #footer a {
   color: #CCCCCC;
   text-decoration: none;
+  padding: 1rem;
+}
+
+#footer a:hover {
+  font-weight: bold;
 }
 
 #footer ul {
   list-style-type: none;
-
 }
 
 .fa {
@@ -26,6 +34,10 @@ form {
   color: #CCCCCC;
   padding: 15px 10px;
   margin: 15px;
+}
+
+.fa:hover {
+  font-size: 33px;
 }
 
 #newsletter p {
